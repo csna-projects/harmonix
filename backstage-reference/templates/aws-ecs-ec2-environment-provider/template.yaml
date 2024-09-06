@@ -148,9 +148,9 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - {{ gitlab_hostname }}
+              - github.com
             allowedOwners:
-              - aws-environment-providers
+              - harmonix-generated-environments
   steps:
     - id: opaGetPlatformInfo
       name: Get OPA platform information
@@ -190,13 +190,13 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-ecs-ec2-environment
-        url: "https://{{gitlab_hostname}}/opa-admin/backstage-reference/-/tree/main/environments/opa-ecs-ec2-environment"
+        url: "https://github.com/alithya-oss/harmonix/blob/integrate-github-ref/backstage-reference/environments/opa-ecs-ec2-environment"
     - id: fetchIacCommonConstructs
       name: Fetch IaC Common Constructs
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://{{gitlab_hostname}}/opa-admin/backstage-reference/-/tree/main/environments/opa-common-constructs"
+        url: "https://github.com/alithya-oss/harmonix/blob/integrate-github-ref/backstage-reference/environments/opa-ecs-ec2-environment"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write
@@ -213,11 +213,11 @@ spec:
           }
     - id: publish
       name: Publish
-      action: publish:gitlab
+      action: publish:github
       input:
+        allowedHosts: ['github.com']
+        description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
-        repoVisibility: internal
-        defaultBranch: main
     - id: register
       name: Register
       action: catalog:register
