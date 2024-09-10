@@ -9,7 +9,7 @@ stages:
   - build
   
 include:
-  - project: 'opa-admin/backstage-reference'
-    ref: main 
+  - project: 'harmonix-generated-environments/harmonix'
+    ref: integrate-github-ref 
     file:
-      - 'common/cicd/.gitlab-ci-aws-provider-ecs-ec2.yml'
+      - 'backstage-reference/common/cicd/.gitlab-ci-aws-provider-ecs-ec2.yml'
