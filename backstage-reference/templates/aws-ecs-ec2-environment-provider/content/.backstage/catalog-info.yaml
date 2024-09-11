@@ -2,6 +2,8 @@ apiVersion: aws.backstage.io/v1alpha
 kind: AWSEnvironmentProvider
 metadata:
   name: ${{values.name | dump }}
+  annotations:
+    backstage.io/techdocs-ref:  dir:.  
   title: ${{ values.title | dump }}
   prefix: ${{values.prefix | dump}}
   {%- if values.description %}
