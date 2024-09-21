@@ -148,9 +148,9 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.com
+              - gitlab.com
             allowedOwners:
-              - harmonix-generated-environments
+              - alithya-csna/cloud/toolbox/harmonix-generated-environments
   steps:
     - id: opaGetPlatformInfo
       name: Get OPA platform information
