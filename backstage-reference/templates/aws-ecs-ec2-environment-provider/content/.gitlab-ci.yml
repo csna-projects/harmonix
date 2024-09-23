@@ -9,7 +9,4 @@ stages:
   - build
   
 include:
-  - project: 'harmonix-generated-environments/harmonix'
-    ref: integrate-github-ref 
-    file:
-      - 'backstage-reference/common/cicd/.gitlab-ci-aws-provider-ecs-ec2.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/custom-harmonix-gitlab/backstage-reference/common/cicd/.gitlab-ci-aws-provider-ecs-ec2.yml'
