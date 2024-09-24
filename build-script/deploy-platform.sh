@@ -6,7 +6,9 @@ opaPlatformDir=${iacDir}/opa-platform
 configDir=${scriptDir}/../config
 
 source ${scriptDir}/helpers.sh
+set -a
 source ${configDir}/.env
+set +a
 
 STACK_NAME=${1:-OPAStack}
 

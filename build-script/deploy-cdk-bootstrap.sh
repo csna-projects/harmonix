@@ -5,10 +5,10 @@ iacDir=${scriptDir}/../iac/roots
 opaPlatformDir=${iacDir}/opa-platform
 configDir=${scriptDir}/../config
 
-# source ${scriptDir}/helpers.sh
-# set -a
-# source ${configDir}/.env
-# set +a
+source ${scriptDir}/helpers.sh
+set -a
+source ${configDir}/.env
+set +a
 
 # if AWS_ACCOUNT_ID is not set, ask for it
 if [[ -z $AWS_ACCOUNT_ID ]]; then

@@ -196,7 +196,7 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://github.com/csna-projects/harmonix/blob/custom-harmonix-gitlab/backstage-reference/environments/opa-ecs-ec2-environment"
+        url: "https://github.com/csna-projects/harmonix/blob/custom-harmonix-gitlab/backstage-reference/environments/opa-common-constructs"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write
