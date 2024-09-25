@@ -71,5 +71,5 @@ iac-deployment-env-provider:
     - UPDATE_COUNT=$(git diff --cached --numstat | wc -l | sed 's/ *$//g')
     - echo "The number of files that will be committed is $UPDATE_COUNT"
     - if [[ "$UPDATE_COUNT" -gt "0" ]]; then git commit -m "updating entity details" --quiet; fi
-    - if [[ "$UPDATE_COUNT" -gt "0" ]]; then git push -o ci.skip https://oauth2:$ACCESS_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME HEAD:main; fi
+    - if [[ "$UPDATE_COUNT" -gt "0" ]]; then git push -o ci.skip https://oauth2:$ACCESS_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME HEAD:master; fi
     - echo -e "\e[0Ksection_end:`date +%s`:git\r\e[0K"
