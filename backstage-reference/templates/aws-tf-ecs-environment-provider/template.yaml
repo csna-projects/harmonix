@@ -165,7 +165,7 @@ spec:
             allowedHosts:
               - github.com
             allowedOwners:
-              - aws-fsi-pace
+              - alithya-csna/cloud/toolbox/harmonix-generated-environments
 
   steps:
     # fetch account/region information about where OPA/Backstage is running

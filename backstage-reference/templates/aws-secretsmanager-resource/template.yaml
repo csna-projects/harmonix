@@ -97,7 +97,7 @@ spec:
             allowedHosts:
               - gitlab.com
             allowedOwners:
-              - aws-resources
+              - alithya-csna/cloud/toolbox/harmonix-generated-environments
   steps:
     - id: opaGetPlatformInfo
       name: Get OPA platform information

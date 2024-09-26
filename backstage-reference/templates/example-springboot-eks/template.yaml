@@ -104,7 +104,7 @@ spec:
             allowedHosts:
               - gitlab.com
             allowedOwners:
-              - aws-app
+              - alithya-csna/cloud/toolbox/harmonix-generated-environments
 
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
