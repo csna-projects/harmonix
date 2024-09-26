@@ -10,6 +10,11 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
+"@aws-app-development/common-constructs@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@aws-app-development/common-constructs/-/common-constructs-0.0.1.tgz#e3002c520593500584cdeb33dccbf2ae4d5c3e66"
+  integrity sha512-Hah11qX4rGAjJ8kw9NlJdKItCfqnh09S4v/TqFuZz0otSRyLXYKoojNHgHC5HW4ys0YqPbk0A9a5zYV0/BoPpg==
+
 "@aws-cdk/asset-awscli-v1@^2.2.202":
   version "2.2.202"
   resolved "https://registry.yarnpkg.com/@aws-cdk/asset-awscli-v1/-/asset-awscli-v1-2.2.202.tgz#4627201d71f6a5c60db36385ce09cb81005f4b32"

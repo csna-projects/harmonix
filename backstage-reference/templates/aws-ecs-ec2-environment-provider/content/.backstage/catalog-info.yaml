@@ -23,7 +23,7 @@ metadata:
   stackName: ""
   iacType: cdk
   componentState: cloudformation
-  gitProvider: gitlab
+  gitProvider: github
 spec:
   type: environment-provider
   lifecycle: experimental
