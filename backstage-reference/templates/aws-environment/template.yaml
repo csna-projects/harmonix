@@ -68,7 +68,7 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: [Group]
+              kind: [Group, User]
         account_type:
           title: Account type
           type: string
@@ -150,7 +150,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - {{ gitlab_hostname }}
+              - gitlab.com
             allowedOwners:
               - aws-environments
   steps:

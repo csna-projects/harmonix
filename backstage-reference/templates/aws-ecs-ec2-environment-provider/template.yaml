@@ -190,13 +190,13 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-ecs-ec2-environment
-        url: "https://github.com/csna-projects/harmonix/blob/custom-harmonix-gitlab/backstage-reference/environments/opa-ecs-ec2-environment"
+        url: "https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/environments/opa-ecs-ec2-environment"
     - id: fetchIacCommonConstructs
       name: Fetch IaC Common Constructs
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://github.com/csna-projects/harmonix/blob/custom-harmonix-gitlab/backstage-reference/environments/opa-common-constructs"
+        url: "https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/environments/opa-common-constructs"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write
@@ -215,9 +215,9 @@ spec:
       name: Publish
       action: publish:gitlab
       input:
-        allowedHosts: ['gitlab.com']
-        description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
+        repoVisibility: internal
+        defaultBranch: main        
     - id: register
       name: Register
       action: catalog:register

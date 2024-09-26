@@ -105,7 +105,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - {{ gitlab_hostname }}
+              - gitlab.com
             allowedOwners:
               - aws-app
 

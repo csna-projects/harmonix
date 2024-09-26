@@ -36,7 +36,7 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: [Group]
+              kind: [Group, User]
     - title: Provide deployment information for the resource
       required:
         - environment
@@ -73,7 +73,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - {{ gitlab_hostname }}
+              - gitlab.com
             allowedOwners:
               - aws-resources
   # These steps are executed in the scaffolder backend, using data that we gathered

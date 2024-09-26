@@ -45,7 +45,7 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: [Group]
+              kind: [Group, User]
         awsAccountID:
           title: AWS Account number
           type: string
@@ -263,9 +263,9 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - {{ gitlab_hostname }}
+              - gitlab.com
             allowedOwners:
-              - aws-environment-providers
+              - alithya-csna/cloud/toolbox/harmonix-generated-environments
   steps:
     - id: opaGetPlatformInfo
       name: Get OPA platform information
@@ -315,13 +315,13 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-eks-environment
-        url: "https://{{gitlab_hostname}}/opa-admin/backstage-reference/-/tree/main/environments/opa-eks-environment"
+        url: "https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/environments/opa-eks-environment"
     - id: fetchIacCommonConstructs
       name: Fetch IaC Common Constructs
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://{{gitlab_hostname}}/opa-admin/backstage-reference/-/tree/main/environments/opa-common-constructs"
+        url: "https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/environments/opa-common-constructs"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write
