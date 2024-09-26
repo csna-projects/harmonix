@@ -32,7 +32,7 @@ spec:
           title: Prefix
           type: string
           description: Prefix for environment - examples - payments, engineering, infra
-          default: opa
+          default: harmonix
         env_description:
           title: Description
           type: string
@@ -54,7 +54,7 @@ spec:
           title: AWS Region
           type: string
           description: Select AWS region
-          default: us-east-1
+          default: us-east-2
           enum:
             - us-east-1
             - us-east-2
