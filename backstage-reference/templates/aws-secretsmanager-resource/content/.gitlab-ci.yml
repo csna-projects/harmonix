@@ -9,5 +9,5 @@ variables:
 
 include:
   - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-job-defaults-cdk.yml'
-      - 'common/cicd/.gitlab-ci-aws-base.yml'
-      - 'common/cicd/.gitlab-ci-aws-iac-secretsmanager.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-base.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-iac-secretsmanager.yml'

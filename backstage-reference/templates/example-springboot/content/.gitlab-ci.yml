@@ -10,7 +10,7 @@ variables:
 
 include:
   - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-job-defaults-cdk.yml'
-      - 'common/cicd/.gitlab-ci-aws-base.yml'
-      - 'common/cicd/.gitlab-ci-aws-iac-ecs.yml'
-      - 'common/cicd/.gitlab-ci-aws-dind-spring-boot.yml'
-      - 'common/cicd/.gitlab-ci-aws-image-deploy.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-base.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-iac-ecs.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-dind-spring-boot.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-image-deploy.yml'
