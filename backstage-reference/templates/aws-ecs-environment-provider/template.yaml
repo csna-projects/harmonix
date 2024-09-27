@@ -115,6 +115,7 @@ spec:
           title: Environment Role ARN
           type: string
           description: The IAM role ARN to assume in order to provision the new environment.
+          default: arn:aws:iam::579977624675:role/MwsOpaExternalGitlabRole
         vpc_configuration:
           title: VPC Configuration
           description: Choose 'Use Existing VPC' to utilize an existing VPC, or continue with 'Create New VPC' for a new setup.
