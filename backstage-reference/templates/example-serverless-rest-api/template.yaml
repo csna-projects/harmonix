@@ -134,7 +134,7 @@ spec:
       name: Fetch Serverless Infrastructure as Code
       action: fetch:template
       input: 
-        url: https://{{ gitlab_hostname }}/opa-admin/backstage-reference/-/tree/main/common/aws_serverless_api
+        url: https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/common/aws_serverless_api
         targetPath: ./.iac
         values:
           component_id: ${{ parameters.component_id | lower }}
