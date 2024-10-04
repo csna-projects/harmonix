@@ -34,7 +34,7 @@ spec:
           title: Prefix
           type: string
           description: Prefix for environment - examples - payments, engineering, infra
-          default: opa
+          default: harmonix
         env_description:
           title: Description
           type: string
@@ -46,7 +46,7 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: [Group]
+              kind: [Group, User]
         awsAccountID:
           title: AWS Account number
           type: string
@@ -56,7 +56,7 @@ spec:
           title: AWS Region
           type: string
           description: Select AWS region
-          default: us-east-1
+          default: us-east-2
           enum:
             - us-east-1
             - us-east-2
@@ -117,6 +117,7 @@ spec:
           title: Environment Role ARN
           type: string
           description: The IAM role ARN to assume in order to provision the new environment.
+          default: arn:aws:iam::579977624675:role/MwsOpaExternalGitlabRole
         vpcConfiguration:
           title: VPC Configuration
           description: Choose 'Use Existing VPC' to utilize an existing VPC, or continue with 'Create New VPC' for a new setup.
@@ -161,9 +162,9 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - {{ gitlab_hostname }}
+              - gitlab.com
             allowedOwners:
-              - aws-environment-providers
+              - alithya-csna/cloud/toolbox/harmonix-generated-environments
   steps:
     - id: opaGetPlatformInfo
       name: Get OPA platform information
@@ -201,13 +202,13 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-gen-ai-environment
-        url: "https://{{gitlab_hostname}}/opa-admin/backstage-reference/-/tree/main/environments/opa-gen-ai-environment"
+        url: "https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/environments/opa-gen-ai-environment"
     - id: fetchIacCommonConstructs
       name: Fetch IaC Common Constructs
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://{{gitlab_hostname}}/opa-admin/backstage-reference/-/tree/main/environments/opa-common-constructs"
+        url: "https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/environments/opa-common-constructs"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write

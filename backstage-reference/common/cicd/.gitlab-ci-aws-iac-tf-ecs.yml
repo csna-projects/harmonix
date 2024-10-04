@@ -4,8 +4,16 @@
     - cat updated_props.properties
     - set -a && source updated_props.properties && set +a
     - set -a && source $PROVIDER_PROPS_FILE && set +a
+    # switch to pipeline role cred then Unset AWS_xxx env vars
+    - PIPELINE_ROLE_ARN=`aws ssm get-parameter --name "/opa/pipeline-role" --region ${OPA_PLATFORM_REGION} | jq --raw-output '.Parameter' | jq -r .Value`
+    - ROLE_OUTPUT=$(aws sts assume-role --role-arn "$PIPELINE_ROLE_ARN" --role-session-name "pipelineJob-$AWS_ACCOUNT_ID" --external-id "GitlabExternalIdentity" --duration-second=3600 --output json)
+    - unset AWS_ACCESS_KEY_ID && unset AWS_SECRET_ACCESS_KEY && unset AWS_SESSION_TOKEN
+    - export AWS_ACCESS_KEY_ID=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.AccessKeyId')
+    - export AWS_SECRET_ACCESS_KEY=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SecretAccessKey')
+    - export AWS_SESSION_TOKEN=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SessionToken')  
+    - aws sts get-caller-identity      
     - export ROLE_NAME=$CI_PROJECT_NAME-$CI_JOB_STAGE # store role session name so that a single env var can be truncated to allowed character length
-    - ROLE_OUTPUT=$(aws sts assume-role --role-arn "$ENV_ROLE_ARN" --role-session-name "${ROLE_NAME:0:63}" --duration-second=3600 --output json)
+    - ROLE_OUTPUT=$(aws sts assume-role --role-arn "$ENV_ROLE_ARN" --role-session-name "${ROLE_NAME:0:63}" --duration-second=3600 --output json)    
     - export AWS_ACCESS_KEY_ID=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.AccessKeyId')
     - export AWS_SECRET_ACCESS_KEY=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SecretAccessKey')
     - export AWS_SESSION_TOKEN=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SessionToken')

@@ -36,7 +36,7 @@ spec:
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
-              kind: [Group]
+              kind: [Group, User]
     - title: Provide deployment information for the resource
       required:
         - environment
@@ -73,9 +73,9 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - {{ gitlab_hostname }}
+              - gitlab.com
             allowedOwners:
-              - aws-resources
+              - alithya-csna/cloud/toolbox/harmonix-generated-environments
   # These steps are executed in the scaffolder backend, using data that we gathered
   # via the parameters above.
   steps:
@@ -117,7 +117,7 @@ spec:
       name: Fetch S3 Infrastructure as Code
       action: fetch:template
       input: 
-        url: https://{{ gitlab_hostname }}/opa-admin/backstage-reference/-/tree/main/common/aws_s3
+        url: https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/common/aws_s3
         targetPath: ./.iac
         values:
           component_id: ${{ parameters.component_id | lower}}

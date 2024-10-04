@@ -15,8 +15,13 @@ default:
     - echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/hashicorp.list
     - apt-get update && apt-get install terraform
     - terraform -v
-    # Unset AWS_xxx env vars so that we will use the default EC2 instance role
+    # switch to pipeline role cred then Unset AWS_xxx env vars
+    - PIPELINE_ROLE_ARN=`aws ssm get-parameter --name "/opa/pipeline-role" --region ${OPA_PLATFORM_REGION} | jq --raw-output '.Parameter' | jq -r .Value`
+    - ROLE_OUTPUT=$(aws sts assume-role --role-arn "$PIPELINE_ROLE_ARN" --role-session-name "pipelineJob-$AWS_ACCOUNT_ID" --external-id "GitlabExternalIdentity" --duration-second=3600 --output json)
     - unset AWS_ACCESS_KEY_ID && unset AWS_SECRET_ACCESS_KEY && unset AWS_SESSION_TOKEN
+    - export AWS_ACCESS_KEY_ID=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.AccessKeyId')
+    - export AWS_SECRET_ACCESS_KEY=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SecretAccessKey')
+    - export AWS_SESSION_TOKEN=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SessionToken')    
     - aws sts get-caller-identity
     # Storing gitlab access token before changing role
     - export ACCESS_TOKEN=`aws secretsmanager get-secret-value --secret-id opa-admin-gitlab-secrets --region ${OPA_PLATFORM_REGION} | jq --raw-output '.SecretString' | jq -r .apiToken`
@@ -25,8 +30,8 @@ default:
     # Clone reference repo so that apps can utilize shared files. This allows us to have
     # a single point of change for reusable files, instead of having to change them in
     # every application repository.
-    - git clone https://oauth2:$ACCESS_TOKEN@$CI_SERVER_HOST/opa-admin/backstage-reference.git
-    - mv $CI_PROJECT_DIR/backstage-reference/common/cicd $CI_PROJECT_DIR/
-    - rm -rf $CI_PROJECT_DIR/backstage-reference
+    - git clone -b generalise-changes https://github.com/csna-projects/harmonix.git
+    - mv $CI_PROJECT_DIR/harmonix/backstage-reference/common/cicd $CI_PROJECT_DIR/
+    - rm -rf $CI_PROJECT_DIR/harmonix
     - echo "Shared files are available in $CI_PROJECT_DIR/cicd"
     - ls -la $CI_PROJECT_DIR/cicd/scripts

@@ -8,9 +8,6 @@ variables:
   OPA_PLATFORM_REGION: "${{ values.platformRegion }}"
 
 include:
-  - project: 'opa-admin/backstage-reference'
-    ref: main 
-    file:
-      - 'common/cicd/.gitlab-ci-job-defaults-cdk.yml'
-      - 'common/cicd/.gitlab-ci-aws-base.yml'
-      - 'common/cicd/.gitlab-ci-aws-iac-s3.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-job-defaults-cdk.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-base.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-iac-s3.yml'
