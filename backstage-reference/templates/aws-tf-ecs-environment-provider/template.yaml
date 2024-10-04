@@ -224,7 +224,7 @@ spec:
       action: fetch:template
       input:
         targetPath: ./.iac
-        url: "https://github.com/aws-fsi-pace/opaadmin_backstage-reference/blob/main/environments/opa-ecs-environment/terraform"
+        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/common/tf_aws_ecs"
         values:
           name: ${{ parameters.name | lower }}
 
@@ -234,7 +234,7 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac
-        url: "https://github.com/aws-fsi-pace/opaadmin_backstage-reference/blob/main/environments/opa-common-constructs/terraform"
+        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/templates/aws-tf-ecs-environment-provider/content/.iac"
           
     # push temp workspace to new GitHub repository
     - id: publish
