@@ -45,7 +45,7 @@ default:
     # Clone reference repo so that apps can utilize shared files. This allows us to have
     # a single point of change for reusable files, instead of having to change them in
     # every application repository.
-    - git clone -b generalise-changes https://github.com/csna-projects/harmonix.git
+    - git clone -b dev https://github.com/csna-projects/harmonix.git
     - mv $CI_PROJECT_DIR/harmonix/backstage-reference/common/cicd $CI_PROJECT_DIR/
     - rm -rf $CI_PROJECT_DIR/harmonix
     - echo "Shared files are available in $CI_PROJECT_DIR/cicd"

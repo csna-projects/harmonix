@@ -157,7 +157,7 @@ spec:
       name: Fetch RDS Infrastructure as Code
       action: fetch:template
       input: 
-        url: https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/common/aws_rds
+        url: https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/common/aws_rds
         targetPath: ./.iac
         values:
           component_id: ${{ parameters.component_id | lower}}

@@ -9,8 +9,8 @@ variables:
   OPA_PLATFORM_REGION: "${{ values.platformRegion }}"
 
 include:
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-job-defaults-cdk.yml'
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-base.yml'
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-iac-ecs.yml'
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-image-kaniko.yml'
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-image-deploy.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-job-defaults-cdk.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-base.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-iac-ecs.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-image-kaniko.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-image-deploy.yml'

@@ -10,4 +10,4 @@ stages:
   - build
 
 include:
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-provider-eks.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-provider-eks.yml'
