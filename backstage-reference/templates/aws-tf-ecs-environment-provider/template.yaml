@@ -239,13 +239,11 @@ spec:
     # push temp workspace to new GitHub repository
     - id: publish
       name: Publish
-      action: publish:github
+      action: publish:gitlab
       input:
         repoUrl: ${{ parameters.repoUrl }}
-        # repoVisibility: private
-        defaultBranch: main
-        protectDefaultBranch: false
-        protectEnforceAdmins: false
+        repoVisibility: internal
+        defaultBranch: main  
 
     # ############################################################
     # Create and register Harness components
