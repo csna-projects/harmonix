@@ -164,7 +164,7 @@ spec:
       name: Fetch EKS Infrastructure as Code
       action: fetch:template
       input: 
-        url: https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/common/aws_eks
+        url: https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/common/aws_eks
         targetPath: ./.iac
         values:
           component_id: ${{ parameters.component_id | lower }}

@@ -161,7 +161,7 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac
-        url: "https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/environments"
+        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/environments"
     - id: publish
       name: Publish
       action: publish:gitlab

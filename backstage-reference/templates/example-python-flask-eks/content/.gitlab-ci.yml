@@ -9,9 +9,9 @@ variables:
   OPA_PLATFORM_REGION: "${{ values.platformRegion }}"
 
 include:
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-job-defaults-cdk.yml'
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-base.yml'
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-iac-eks.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-job-defaults-cdk.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-base.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-iac-eks.yml'
       # If you want to call kubectl directly instead of going through lambda, comment above line and uncomment below line
       # - 'common/cicd/.gitlab-ci-aws-iac-eks-kubectl.yml'
-  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/generalise-changes/backstage-reference/common/cicd/.gitlab-ci-aws-image-kaniko.yml'
+  - remote: 'https://raw.githubusercontent.com/csna-projects/harmonix/dev/backstage-reference/common/cicd/.gitlab-ci-aws-image-kaniko.yml'

@@ -117,7 +117,7 @@ spec:
       name: Fetch S3 Infrastructure as Code
       action: fetch:template
       input: 
-        url: https://github.com/csna-projects/harmonix/blob/generalise-changes/backstage-reference/common/aws_s3
+        url: https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/common/aws_s3
         targetPath: ./.iac
         values:
           component_id: ${{ parameters.component_id | lower}}
