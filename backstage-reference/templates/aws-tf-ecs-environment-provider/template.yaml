@@ -164,7 +164,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.com
+              - gitlab.com
             allowedOwners:
               - alithya-csna/cloud/toolbox/harmonix-generated-environments
 
@@ -224,7 +224,7 @@ spec:
       action: fetch:template
       input:
         targetPath: ./.iac
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/common/tf_aws_ecs"
+        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/templates/aws-tf-ecs-environment-provider/content/.iac"
         values:
           name: ${{ parameters.name | lower }}
 
@@ -234,8 +234,8 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/templates/aws-tf-ecs-environment-provider/content/.iac"
-          
+        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/common/tf_aws_ecs"
+         
     # push temp workspace to new GitHub repository
     - id: publish
       name: Publish

@@ -27,7 +27,7 @@ metadata:
   auditTable: ""
   stackName: ""
   componentState: terraform-cloud
-  gitProvider: github
+  gitProvider: gitlab
   iacType: terraform
 spec:
   type: environment-provider
