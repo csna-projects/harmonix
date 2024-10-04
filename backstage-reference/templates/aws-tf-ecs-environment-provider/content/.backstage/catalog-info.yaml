@@ -2,7 +2,7 @@ apiVersion: aws.backstage.io/v1alpha
 kind: AWSEnvironmentProvider
 metadata:
   annotations:
-    github.com/project-slug: ${{ values.projectSlug | dump }}
+    gitlab.com/project-slug: ${{ values.projectSlug | dump }}
     harness.io/pipelines: >
           ${{ values.repoName }}:
           https://app.harness.io/ng/account/Rm1BaHdlRTOFKwuhwvoswg/ci/orgs/${{ values.orgIdentifier }}/projects/${{ values.projectIdentifier }}/pipelines/${{ values.pipelineID }}/pipeline-studio/
