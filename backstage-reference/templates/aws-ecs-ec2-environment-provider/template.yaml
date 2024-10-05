@@ -115,7 +115,7 @@ spec:
           title: Environment Role ARN
           type: string
           description: The IAM role ARN to assume in order to provision the new environment.
-          default: arn:aws:iam::579977624675:role/MwsOpaExternalGitlabRole
+          default: arn:aws:iam::579977624675:role/HarmonixExternalGitlabRole
         cidr:
           title: CIDR
           type: string
@@ -191,13 +191,13 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-ecs-ec2-environment
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/environments/opa-ecs-ec2-environment"
+        url: "https://github.com/csna-projects/harmonix/tree/main/iac/roots/opa-ecs-ec2-environment"
     - id: fetchIacCommonConstructs
       name: Fetch IaC Common Constructs
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/environments/opa-common-constructs"
+        url: "https://github.com/csna-projects/harmonix/tree/main/iac/roots/opa-common-constructs"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write
