@@ -201,13 +201,13 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-serverless-environment
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/environments/opa-serverless-environment"
+        url: "https://github.com/csna-projects/harmonix/tree/main/iac/roots/opa-serverless-environment"
     - id: fetchIacCommonConstructs
       name: Fetch IaC Common Constructs
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/environments/opa-common-constructs"
+        url: "https://github.com/csna-projects/harmonix/tree/main/iac/roots/opa-common-constructs"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write

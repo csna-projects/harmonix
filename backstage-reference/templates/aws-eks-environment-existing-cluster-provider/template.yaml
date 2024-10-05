@@ -231,13 +231,13 @@ spec:
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-eks-environment
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/environments/opa-eks-environment"
+        url: "https://github.com/csna-projects/harmonix/tree/main/iac/roots/opa-eks-environment"
     - id: fetchIacCommonConstructs
       name: Fetch IaC Common Constructs
       action: fetch:plain
       input:
         targetPath: ./.iac/opa-common-constructs
-        url: "https://github.com/csna-projects/harmonix/blob/dev/backstage-reference/environments/opa-common-constructs"
+        url: "https://github.com/csna-projects/harmonix/tree/main/iac/roots/opa-common-constructs"
     - id: createYarnPackageFile
       name: Configure Yarn Package Manager
       action: roadiehq:utils:fs:write
