@@ -220,8 +220,10 @@
     - if [[ "$UPDATE_COUNT" -gt "0" ]]; then git push -o ci.skip https://oauth2:$ACCESS_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME; fi
     - git checkout $CI_COMMIT_SHA # put our git repo back to where it was when the pipeline started
     - echo -e "\e[0Ksection_end:`date +%s`:git\r\e[0K"
+    - echo -e "ZZZZZZZZZZZZZZZZZbefAfter AWS_SESSION_TOKEN is ${AWS_SESSION_TOKEN}" 
 
   after_script:
+    - echo -e "ZZZZZZZZZZZZZZZZZZZZZAfter AWS_SESSION_TOKEN is ${AWS_SESSION_TOKEN}" 
     - echo -e "\e[0Ksection_start:`date +%s`:delete-aws_creds[collapsed=true]\r\e[0KDelete AWS Creds"
     - export ACCESS_TOKEN=$(cat $CI_PROJECT_DIR/gittoken)
     - rm $CI_PROJECT_DIR/gittoken
@@ -239,5 +241,6 @@
     - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ AWS_SESSION_TOKEN is ${AWS_SESSION_TOKEN}"      
     - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ ACCESS_TOKEN is ${ACCESS_TOKEN}"      
     - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ OPA_CI_ENVIRONMENT is ${OPA_CI_ENVIRONMENT}"      
-    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ GL_API is ${GL_API}"      
+    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ AWS_ACCESS_KEY_ID is ${AWS_ACCESS_KEY_ID}"      
+    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ AWS_SECRET_ACCESS_KEY is ${AWS_SECRET_ACCESS_KEY}"           
     - echo -e "\e[0Ksection_end:`date +%s`:delete-aws_creds\r\e[0K"
