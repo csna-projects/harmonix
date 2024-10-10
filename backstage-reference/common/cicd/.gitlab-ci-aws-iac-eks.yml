@@ -16,12 +16,6 @@
     - export AWS_SECRET_ACCESS_KEY=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SecretAccessKey')
     - export AWS_SESSION_TOKEN=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SessionToken')  
     - aws sts get-caller-identity      
-    # - export ROLE_NAME=$CI_PROJECT_NAME-$CI_JOB_STAGE # store role session name so that a single env var can be truncated to allowed character length
-    # - ROLE_OUTPUT=$(aws sts assume-role --role-arn "$ENV_ROLE_ARN" --role-session-name "${ROLE_NAME:0:63}" --duration-second=3600 --output json)    
-    # - export AWS_ACCESS_KEY_ID=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.AccessKeyId')
-    # - export AWS_SECRET_ACCESS_KEY=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SecretAccessKey')
-    # - export AWS_SESSION_TOKEN=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SessionToken')
-    # - aws sts get-caller-identity
     - echo -e "\e[0Ksection_end:`date +%s`:aws_identity\r\e[0K"
 
     - cd $CI_PROJECT_DIR/.iac/
@@ -103,15 +97,8 @@
     - export AWS_ACCESS_KEY_ID=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.AccessKeyId')
     - export AWS_SECRET_ACCESS_KEY=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SecretAccessKey')
     - export AWS_SESSION_TOKEN=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SessionToken')  
-    - aws sts get-caller-identity      
-    # - export ROLE_NAME=$CI_PROJECT_NAME-$CI_JOB_STAGE # store role session name so that a single env var can be truncated to allowed character length
-    # - ROLE_OUTPUT=$(aws sts assume-role --role-arn "$ENV_ROLE_ARN" --role-session-name "${ROLE_NAME:0:63}" --duration-second=3600 --output json)    
-    # - export AWS_ACCESS_KEY_ID=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.AccessKeyId')
-    # - export AWS_SECRET_ACCESS_KEY=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SecretAccessKey')
-    # - export AWS_SESSION_TOKEN=$(echo ${ROLE_OUTPUT} | jq -r '.Credentials.SessionToken')
-    # - aws sts get-caller-identity
+    - aws sts get-caller-identity
     - echo -e "\e[0Ksection_end:`date +%s`:aws_identity\r\e[0K"
-
     - echo -e "\e[0Ksection_start:`date +%s`:extract_cdk_output[collapsed=true]\r\e[0KExport CDK Output"
     - export APP_SHORT_NAME=$(yq -r .metadata.name $CI_PROJECT_DIR/.backstage/catalog-info.yaml)
     - echo "APP_SHORT_NAME is $APP_SHORT_NAME"
