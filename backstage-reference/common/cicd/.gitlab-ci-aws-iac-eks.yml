@@ -236,5 +236,8 @@
     - >
       curl --globoff --request DELETE --header "PRIVATE-TOKEN: ${ACCESS_TOKEN}"
       "${GL_API}/AWS_SESSION_TOKEN?filter[environment_scope]=$OPA_CI_ENVIRONMENT"
-    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ"      
+    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ AWS_SESSION_TOKEN is ${AWS_SESSION_TOKEN}"      
+    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ ACCESS_TOKEN is ${ACCESS_TOKEN}"      
+    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ OPA_CI_ENVIRONMENT is ${OPA_CI_ENVIRONMENT}"      
+    - echo -e "ZZZZZZZZZZZZZZZZZZZZZZZZ GL_API is ${GL_API}"      
     - echo -e "\e[0Ksection_end:`date +%s`:delete-aws_creds\r\e[0K"
